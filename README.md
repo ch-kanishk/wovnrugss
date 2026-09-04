@@ -159,9 +159,12 @@ already runs `prisma generate && prisma migrate deploy && next build`, so schema
 apply on every deploy.
 
 **2. Create the database.** In the Vercel project: **Storage → Create → Postgres** (Neon).
-It sets `DATABASE_URL` and `POSTGRES_URL*` for you, but this project also needs `DIRECT_URL`:
-copy the **unpooled / direct** connection string into an env var of that name. Without it,
-`prisma migrate deploy` fails against the transaction pooler.
+That sets `DATABASE_URL` and is enough to deploy — the build defaults `DIRECT_URL` to
+`DATABASE_URL` when it is absent.
+
+If your provider gives you a *pooled* connection string (PgBouncer, Neon's `-pooler` host),
+also set `DIRECT_URL` to the **unpooled / direct** string. Migrations cannot run through a
+transaction pooler, and without it `prisma migrate deploy` will fail on the pooled URL.
 
 **3. Create the image store.** **Storage → Create → Blob**. This sets
 `BLOB_READ_WRITE_TOKEN`, which is what routes admin uploads to Blob instead of the
