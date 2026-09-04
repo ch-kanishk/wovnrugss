@@ -1,4 +1,32 @@
+import { readFileSync, existsSync } from 'fs';
 import { PrismaClient } from '@prisma/client';
+
+/**
+ * tsx does not read .env, and Prisma Client reads DATABASE_URL from the process
+ * environment — so without this, `npm run db:seed` fails on a machine that keeps
+ * its connection string in .env rather than exporting it. Real environment
+ * variables take precedence, so `DATABASE_URL=... npm run db:seed` still works
+ * for seeding a remote database.
+ */
+function loadEnvFiles() {
+  for (const file of ['.env.local', '.env']) {
+    if (!existsSync(file)) continue;
+    for (const line of readFileSync(file, 'utf8').split('\n')) {
+      const match = line.match(/^\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)\s*$/);
+      if (!match) continue;
+      const [, key, rawValue] = match;
+      if (process.env[key] !== undefined) continue;
+      const quoted = rawValue.trim().match(/^(['"])([\s\S]*)\1/);
+      process.env[key] = quoted ? quoted[2] : rawValue.split('#')[0].trim();
+    }
+  }
+}
+loadEnvFiles();
+
+if (!process.env.DATABASE_URL) {
+  console.error('DATABASE_URL is not set. See .env.example.');
+  process.exit(1);
+}
 
 const prisma = new PrismaClient();
 

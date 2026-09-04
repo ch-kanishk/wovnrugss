@@ -21,11 +21,14 @@ You need a PostgreSQL database. For local development, either point `DATABASE_UR
 at a local server or run one in Docker:
 
 ```bash
-docker run -d --name wovn-pg -e POSTGRES_PASSWORD=devpass -e POSTGRES_USER=wovn \
+docker run -d --name wovn-pg --restart unless-stopped \
+  -e POSTGRES_PASSWORD=devpass -e POSTGRES_USER=wovn \
   -e POSTGRES_DB=wovnrugs -p 55432:5432 postgres:16-alpine
 # DATABASE_URL="postgresql://wovn:devpass@localhost:55432/wovnrugs"
-# DIRECT_URL="postgresql://wovn:devpass@localhost:55432/wovnrugs"
 ```
+
+`DIRECT_URL` is optional — it defaults to `DATABASE_URL`. Set it only when `DATABASE_URL`
+is a pooled connection.
 
 Admin: **http://localhost:3000/admin** — sign in with `ADMIN_EMAIL` / `ADMIN_PASSWORD` from `.env`.
 
@@ -190,8 +193,12 @@ wrong origin. Change it and redeploy, do not just edit and restart.
 demo catalogue (optional), run the seed locally against the production database:
 
 ```bash
-DATABASE_URL="<production DIRECT_URL>" npm run db:seed   # deletes existing products/orders/posts
+DATABASE_URL="<production connection string>" npm run db:seed   # deletes existing products/orders/posts
 ```
+
+A `DATABASE_URL` given on the command line always wins over `.env`, and `DIRECT_URL` is
+paired to it automatically — so this cannot accidentally target your local database.
+`npm run db:deploy` prints the host and database it is about to touch before running.
 
 **6. Point XPay at the webhook:** `https://your-domain.com/api/payments/xpay/webhook`.
 
