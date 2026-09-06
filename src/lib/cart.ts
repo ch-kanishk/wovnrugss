@@ -9,7 +9,7 @@ export interface CartLine {
   quantity: number;
 }
 
-export const CART_KEY = 'wovnrugs.cart.v1';
+export const CART_KEY = 'bonanzarugs.cart.v1';
 
 export function readCart(): CartLine[] {
   if (typeof window === 'undefined') return [];
@@ -25,7 +25,7 @@ export function readCart(): CartLine[] {
 export function writeCart(lines: CartLine[]) {
   if (typeof window === 'undefined') return;
   window.localStorage.setItem(CART_KEY, JSON.stringify(lines));
-  window.dispatchEvent(new CustomEvent('wovnrugs:cart'));
+  window.dispatchEvent(new CustomEvent('bonanzarugs:cart'));
 }
 
 export function cartSubtotal(lines: CartLine[]) {

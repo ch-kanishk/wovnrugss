@@ -290,7 +290,7 @@ Come and see for yourself: our studio in Sitapura is open to visitors, and our l
 ];
 
 async function main() {
-  console.log('Seeding Wovn Rugs…');
+  console.log('Seeding Bonanza Rugs…');
 
   await prisma.orderItem.deleteMany();
   await prisma.order.deleteMany();

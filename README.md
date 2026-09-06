@@ -1,4 +1,4 @@
-# Wovn Rugs — handmade-rug e-commerce store
+# Bonanza Rugs — handmade-rug e-commerce store
 
 A production-shaped storefront and admin for a Jaipur rug business, in the mould of
 jaipurrugs.com: SEO-first catalogue pages, a merchant admin for listings/orders/blog,
@@ -21,10 +21,10 @@ You need a PostgreSQL database. For local development, either point `DATABASE_UR
 at a local server or run one in Docker:
 
 ```bash
-docker run -d --name wovn-pg --restart unless-stopped \
-  -e POSTGRES_PASSWORD=devpass -e POSTGRES_USER=wovn \
-  -e POSTGRES_DB=wovnrugs -p 55432:5432 postgres:16-alpine
-# DATABASE_URL="postgresql://wovn:devpass@localhost:55432/wovnrugs"
+docker run -d --name bonanza-pg --restart unless-stopped \
+  -e POSTGRES_PASSWORD=devpass -e POSTGRES_USER=bonanza \
+  -e POSTGRES_DB=bonanzarugs -p 55432:5432 postgres:16-alpine
+# DATABASE_URL="postgresql://bonanza:devpass@localhost:55432/bonanzarugs"
 ```
 
 `DIRECT_URL` is optional — it defaults to `DATABASE_URL`. Set it only when `DATABASE_URL`

@@ -1,6 +1,6 @@
 /**
  * Build-time brand asset generation.
- * Traces the supplied WOVN RUGS logo into SVGs (mark, lockup, full) plus the
+ * Traces the supplied BONANZA RUGS logo into SVGs (mark, lockup, full) plus the
  * favicon and OG image. Run once; the outputs are committed to public/.
  */
 import { promises as fs } from 'fs';
@@ -11,13 +11,24 @@ import potrace from 'potrace';
 // every derived asset (header lockups, favicon, OG card).
 const SRC = 'assets/logo-source.png';
 
-// Content bands measured from the source (see analyze step)
-const BOX = {
-  mark:   { left: 46,  top: 112, width: 384, height: 202 },   // WR monogram
-  lockup: { left: 46,  top: 112, width: 384, height: 249 },   // monogram + WOVN RUGS
+// The source is drawn at SCALE x a 500x500 layout; scripts/make-logo-source.mjs
+// uses the same constant, so the bands below stay aligned with the artwork.
+const SCALE = 4;
+
+// Content bands measured from the source, in 500x500 layout units.
+const BAND = {
+  mark:   { left: 46,  top: 112, width: 384, height: 202 },   // BR monogram
+  lockup: { left: 46,  top: 112, width: 384, height: 249 },   // monogram + BONANZA RUGS
   full:     { left: 46,  top: 112, width: 384, height: 316 },   // + tagline
-  wordmark: { left: 153, top: 337, width: 192, height: 24 },    // "WOVN RUGS" alone
+  wordmark: { left: 153, top: 337, width: 192, height: 24 },    // "BONANZA RUGS" alone
 };
+
+const BOX = Object.fromEntries(
+  Object.entries(BAND).map(([k, b]) => [k, {
+    left: b.left * SCALE, top: b.top * SCALE,
+    width: b.width * SCALE, height: b.height * SCALE,
+  }])
+);
 
 function trace(buffer, opts = {}) {
   return new Promise((resolve, reject) => {
@@ -27,12 +38,12 @@ function trace(buffer, opts = {}) {
 }
 
 /**
- * Trace at 2x and rewrite the SVG header so the artwork scales freely.
- * 2x is the sweet spot here: visually identical to a 4x trace but ~5x smaller,
- * because a higher upscale multiplies nodes along the antialiased edges.
+ * Trace at the source's native resolution and rewrite the SVG header so the
+ * artwork scales freely. The source already carries the SCALE upsample, so
+ * resampling again here would only multiply nodes along antialiased edges.
  */
 async function makeSvg(box, name, color) {
-  const scale = 2;
+  const scale = 1;
   const png = await sharp(SRC)
     .flatten({ background: '#ffffff' })
     .extract(box)
@@ -47,7 +58,7 @@ async function makeSvg(box, name, color) {
   const w = box.width * scale, h = box.height * scale;
   svg = svg.replace(
     /<svg[^>]*>/,
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${box.width}" height="${box.height}" role="img" aria-label="Wovn Rugs">`
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${box.width}" height="${box.height}" role="img" aria-label="Bonanza Rugs">`
   );
   await fs.writeFile(`public/brand/${name}.svg`, svg);
   const kb = (Buffer.byteLength(svg) / 1024).toFixed(1);
@@ -65,7 +76,7 @@ await makeSvg(BOX.wordmark, 'wordmark', '#000000');
 await makeSvg(BOX.wordmark, 'wordmark-light', '#ffffff');
 
 /**
- * Horizontal lockup for the site header. The stacked logo puts "WOVN RUGS"
+ * Horizontal lockup for the site header. The stacked logo puts "BONANZA RUGS"
  * under the monogram, which is illegible at a 40-50px header height, so the
  * mark and wordmark are recomposed side by side from the same artwork.
  */
@@ -85,7 +96,7 @@ async function makeHorizontal(tone) {
   const gap = H * 0.2;
   const total = mark.w + gap + wordW;
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${Math.round(total)} ${H}" role="img" aria-label="Wovn Rugs">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${Math.round(total)} ${H}" role="img" aria-label="Bonanza Rugs">
   <g>${mark.inner}</g>
   <g transform="translate(${Math.round(mark.w + gap)} ${Math.round((H - word.h * wordScale) / 2)}) scale(${wordScale.toFixed(4)})">${word.inner}</g>
 </svg>`;

@@ -6,7 +6,7 @@ import { site } from '@/lib/config';
 export const metadata = buildMetadata({
   title: 'Contact Us',
   description:
-    'Talk to the Wovn Rugs studio in Jaipur about custom sizes, trade pricing, shipping or an existing order.',
+    'Talk to the Bonanza Rugs studio in Jaipur about custom sizes, trade pricing, shipping or an existing order.',
   path: '/contact',
 });
 

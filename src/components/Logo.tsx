@@ -13,7 +13,7 @@ const SRC: Record<Variant, { dark: string; light: string; ratio: number }> = {
 };
 
 /**
- * The Wovn Rugs logo. `height` drives the size; width follows the artwork ratio.
+ * The Bonanza Rugs logo. `height` drives the size; width follows the artwork ratio.
  * `tone="light"` swaps to the white artwork for dark backgrounds.
  * Rendered unoptimized because it is already an SVG — nothing for the image
  * optimizer to do, and it avoids needing dangerouslyAllowSVG.

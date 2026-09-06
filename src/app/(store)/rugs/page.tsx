@@ -21,7 +21,7 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
   return buildMetadata({
     title: `Hand-Knotted & Hand-Tufted Rugs${suffix}`,
     description:
-      'Browse the full Wovn Rugs collection — hand-knotted wool and silk carpets, hand-tufted rugs, flatweave dhurries and runners, made in Jaipur and shipped worldwide.',
+      'Browse the full Bonanza Rugs collection — hand-knotted wool and silk carpets, hand-tufted rugs, flatweave dhurries and runners, made in Jaipur and shipped worldwide.',
     path: page > 1 ? `/rugs?page=${page}` : '/rugs',
     noIndex: isFiltered,
   });

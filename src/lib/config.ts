@@ -1,10 +1,10 @@
 export const site = {
-  name: process.env.NEXT_PUBLIC_SITE_NAME || 'Wovn Rugs',
+  name: process.env.NEXT_PUBLIC_SITE_NAME || 'Bonanza Rugs',
   url: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/$/, ''),
   tagline: 'Luxury & Premium Rugs',
   description:
-    'Wovn Rugs crafts hand-knotted and hand-tufted wool and silk rugs in Jaipur, India. Shop traditional, modern and transitional area rugs with worldwide shipping.',
-  email: 'care@wovnrugs.com',
+    'Bonanza Rugs crafts hand-knotted and hand-tufted wool and silk rugs in Jaipur, India. Shop traditional, modern and transitional area rugs with worldwide shipping.',
+  email: 'care@bonanzarugs.com',
   phone: '+91 141 000 0000',
   whatsapp: '+919000000000',
   address: {
@@ -15,9 +15,9 @@ export const site = {
     country: 'IN',
   },
   social: {
-    instagram: 'https://instagram.com/wovnrugs',
-    facebook: 'https://facebook.com/wovnrugs',
-    pinterest: 'https://pinterest.com/wovnrugs',
+    instagram: 'https://instagram.com/bonanzarugs',
+    facebook: 'https://facebook.com/bonanzarugs',
+    pinterest: 'https://pinterest.com/bonanzarugs',
   },
   defaultOgImage: '/og-default.png', // social cards must be raster
 };

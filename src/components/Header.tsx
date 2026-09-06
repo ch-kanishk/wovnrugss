@@ -46,7 +46,7 @@ export function Header() {
           </svg>
         </button>
 
-        <Link href="/" aria-label="Wovn Rugs — home" className="shrink-0">
+        <Link href="/" aria-label="Bonanza Rugs — home" className="shrink-0">
           <Logo variant="lockup-h" height={40} priority className="h-9 w-auto sm:h-10" />
         </Link>
 

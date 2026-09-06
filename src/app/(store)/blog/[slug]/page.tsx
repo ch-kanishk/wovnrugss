@@ -82,7 +82,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       )}
 
       <div
-        className="prose-wovn mx-auto mt-12 max-w-3xl text-[15px]"
+        className="prose-bonanza mx-auto mt-12 max-w-3xl text-[15px]"
         dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
       />
 

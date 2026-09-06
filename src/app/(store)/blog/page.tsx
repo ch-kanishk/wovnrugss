@@ -40,7 +40,7 @@ export default async function BlogIndex({
           {
             '@context': 'https://schema.org',
             '@type': 'Blog',
-            name: 'The Wovn Rugs Journal',
+            name: 'The Bonanza Rugs Journal',
             url: absoluteUrl('/blog'),
             blogPost: items.map((p) => ({
               '@type': 'BlogPosting',

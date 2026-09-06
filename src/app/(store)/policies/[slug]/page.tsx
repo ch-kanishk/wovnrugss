@@ -10,7 +10,7 @@ export const revalidate = 3600;
 const POLICIES: Record<string, { title: string; description: string; body: string }> = {
   shipping: {
     title: 'Shipping & Delivery',
-    description: 'How and when Wovn Rugs ships within India and worldwide, including timelines, duties and tracking.',
+    description: 'How and when Bonanza Rugs ships within India and worldwide, including timelines, duties and tracking.',
     body: `## Dispatch times
 Rugs in stock are inspected, rolled and dispatched from our Jaipur studio within **3–5 working days**. Custom and made-to-order rugs are quoted individually — typically 8 to 20 weeks depending on knot density and size.
 
@@ -29,7 +29,7 @@ You receive a tracking number by email the moment the rug leaves our studio. Lar
   },
   returns: {
     title: 'Returns & Refunds',
-    description: 'Wovn Rugs 30-day room trial, return conditions, and how refunds are processed through XPay.',
+    description: 'Bonanza Rugs 30-day room trial, return conditions, and how refunds are processed through XPay.',
     body: `## 30-day room trial
 Live with your rug for 30 days. If the colour is not right in your light, tell us within 30 days of delivery and we will arrange a return.
 
@@ -49,7 +49,7 @@ Photograph the rug and packaging within 48 hours of delivery and send it to us. 
   },
   privacy: {
     title: 'Privacy Policy',
-    description: 'What personal data Wovn Rugs collects, why we collect it, and how it is stored and shared.',
+    description: 'What personal data Bonanza Rugs collects, why we collect it, and how it is stored and shared.',
     body: `## What we collect
 - **Order data:** name, email, phone, shipping address and order contents.
 - **Payment data:** handled entirely by XPay, our payment processor. We store only a transaction reference — never your card number, CVV or bank credentials.
@@ -73,7 +73,7 @@ We use strictly necessary cookies for your cart and admin session, plus optional
   },
   terms: {
     title: 'Terms of Service',
-    description: 'The terms under which Wovn Rugs sells and ships handmade rugs.',
+    description: 'The terms under which Bonanza Rugs sells and ships handmade rugs.',
     body: `## Ordering
 Placing an order is an offer to buy. The contract forms when we confirm dispatch. We may decline an order if a rug has sold out or if pricing was displayed in error.
 

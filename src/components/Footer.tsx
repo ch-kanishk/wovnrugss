@@ -40,7 +40,7 @@ export function Footer() {
     <footer className="mt-24 border-t border-ink/10 bg-sand">
       <div className="container-page grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-2">
-          <Link href="/" aria-label="Wovn Rugs — home" className="inline-block">
+          <Link href="/" aria-label="Bonanza Rugs — home" className="inline-block">
             <Logo variant="full" height={104} className="h-[104px] w-auto" />
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink/65">

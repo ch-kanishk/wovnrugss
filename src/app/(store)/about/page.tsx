@@ -7,7 +7,7 @@ import { site } from '@/lib/config';
 export const metadata = buildMetadata({
   title: 'Our Story — Rug Weaving in Jaipur',
   description:
-    'Wovn Rugs works with 200+ weaving families across Rajasthan to make hand-knotted wool and silk carpets. Read about our looms, our dyes and our fair-wage commitment.',
+    'Bonanza Rugs works with 200+ weaving families across Rajasthan to make hand-knotted wool and silk carpets. Read about our looms, our dyes and our fair-wage commitment.',
   path: '/about',
 });
 

@@ -24,10 +24,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setLines(readCart());
     setReady(true);
     const sync = () => setLines(readCart());
-    window.addEventListener('wovnrugs:cart', sync);
+    window.addEventListener('bonanzarugs:cart', sync);
     window.addEventListener('storage', sync);
     return () => {
-      window.removeEventListener('wovnrugs:cart', sync);
+      window.removeEventListener('bonanzarugs:cart', sync);
       window.removeEventListener('storage', sync);
     };
   }, []);

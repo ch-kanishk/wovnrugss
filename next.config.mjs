@@ -8,7 +8,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'res.cloudinary.com' },
-      { protocol: 'https', hostname: '**.wovnrugs.com' },
+      { protocol: 'https', hostname: '**.bonanzarugs.com' },
       // Vercel Blob storage — where admin image uploads land in production
       { protocol: 'https', hostname: '**.public.blob.vercel-storage.com' },
     ],

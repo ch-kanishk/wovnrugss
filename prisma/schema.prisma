@@ -1,4 +1,4 @@
-// Wovn Rugs — data model
+// Bonanza Rugs — data model
 generator client {
   provider = "prisma-client-js"
 }
@@ -160,7 +160,7 @@ model Post {
   excerpt  String?
   content  String            // Markdown-ish rich text
   coverImage String?
-  author   String  @default("Wovn Rugs")
+  author   String  @default("Bonanza Rugs")
   tags     String? // comma separated
   isPublished Boolean @default(false)
   publishedAt DateTime?

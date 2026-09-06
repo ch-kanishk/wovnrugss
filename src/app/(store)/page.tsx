@@ -12,7 +12,7 @@ export const revalidate = 300;
 const HOME_FAQS = [
   { q: 'What is the difference between hand-knotted and hand-tufted rugs?',
     a: 'A hand-knotted rug is woven knot by knot on a loom and can take six to twelve months to complete, giving it a lifespan of several decades. A hand-tufted rug is punched into a canvas backing with a tufting tool, which is faster to make and more affordable while still handcrafted.' },
-  { q: 'Do you ship Wovn Rugs worldwide?',
+  { q: 'Do you ship Bonanza Rugs worldwide?',
     a: 'Yes. We ship from Jaipur to over 40 countries with tracked, insured courier partners. Shipping within India is free on orders above ₹15,000.' },
   { q: 'Can I order a custom size or colour?',
     a: 'Every design in our catalogue can be woven to a custom size, colour palette or shape. Share your requirement through our contact form and our studio will respond within two working days with a quote and timeline.' },
@@ -160,7 +160,7 @@ export default async function HomePage() {
             />
           </div>
           <div>
-            <p className="eyebrow text-brand-300">The making of a Wovn rug</p>
+            <p className="eyebrow text-brand-300">The making of a Bonanza rug</p>
             <h2 className="mt-4 font-display text-4xl leading-tight">Four hands, nine months, one carpet</h2>
             <div className="mt-10 grid gap-8 sm:grid-cols-2">
               {CRAFT_STEPS.map((step) => (

@@ -126,7 +126,7 @@ export function PostForm({ post }: Props) {
             </label>
             <div className="mt-4">
               <label htmlFor="author" className="label">Author</label>
-              <input id="author" name="author" defaultValue={kept('author', post?.author ?? 'Wovn Rugs')} className="input" />
+              <input id="author" name="author" defaultValue={kept('author', post?.author ?? 'Bonanza Rugs')} className="input" />
             </div>
             <div className="mt-4">
               <label htmlFor="tags" className="label">Tags (comma separated)</label>

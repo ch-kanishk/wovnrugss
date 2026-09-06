@@ -4,7 +4,7 @@ import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Your Cart',
-  description: 'Review the rugs in your Wovn Rugs cart and proceed to secure checkout.',
+  description: 'Review the rugs in your Bonanza Rugs cart and proceed to secure checkout.',
   path: '/cart',
   noIndex: true,
 });

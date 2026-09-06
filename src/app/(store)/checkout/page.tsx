@@ -5,7 +5,7 @@ import { store } from '@/lib/config';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Secure Checkout',
-  description: 'Complete your Wovn Rugs order with secure payment via XPay.',
+  description: 'Complete your Bonanza Rugs order with secure payment via XPay.',
   path: '/checkout',
   noIndex: true,
 });
